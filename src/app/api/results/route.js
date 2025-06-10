@@ -1,7 +1,18 @@
-import supabase from '../../../../lib/supabase';
+import { createClient } from '@supabase/supabase-js';
 
 export async function GET() {
   try {
+    // Initialize Supabase client with error handling
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    
+    if (!supabaseUrl || !supabaseKey) {
+      console.error('Missing Supabase environment variables');
+      return Response.json({ error: 'Configuration error' }, { status: 500 });
+    }
+    
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
     // Fetch all survey data
     const { data: surveys, error } = await supabase
       .from('tbl_surveys')
