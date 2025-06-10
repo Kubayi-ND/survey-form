@@ -162,7 +162,7 @@ export default function HomePage() {  const [form, setForm] = useState({
         </div>
           <div className='flex gap-22'>
           <p className="font-medium">Favourite Food:</p>
-          {['Pizza', 'Pasta', 'Pap and Wors', 'Other'].map(food => (
+          {['Pizza', 'Pasta', 'Pap and Wors'].map(food => (
             <label key={food} className="block">
               <input 
                 type="checkbox" 

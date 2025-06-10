@@ -41,44 +41,46 @@ export default function ResultsPage() {
   }
 
   return (
-    <div className="p-6 w-full mx-auto">      {/* Overview Statistics */}
-      <div className=" p-6 mb-6">
-        <ul className="space-y-2">
-          <li className="text-gray-700">
-            <span>Total number of surveys : {data.total}</span> 
-          </li>
-          <li className="text-gray-700">
-            <span>Average Age : {data.averageAge}</span> 
-          </li>
-          <li className="text-gray-700">
-            <span>Oldest person who Participanted in survey : {data.oldest}</span> 
-          </li>
-          <li className="text-gray-700">
-            <span>Youngest person who Participanted in survey : {data.youngest}</span> 
-          </li>
-        </ul>
+    <div className="p-6 w-[80%] mx-auto">      {/* Overview Statistics */}
+      <div className="p-6 mb-6">
+        <div className="space-y-2">
+          <div className="flex justify-between text-gray-700">
+            <span>Total number of surveys :</span>
+            <span className="font-semibold">{data.total}</span>
+          </div>
+          <div className="flex justify-between text-gray-700">
+            <span>Average Age :</span>
+            <span className="font-semibold">{data.averageAge}</span>
+          </div>
+          <div className="flex justify-between text-gray-700">
+            <span>Oldest person who Participated in survey :</span>
+            <span className="font-semibold">{data.oldest}</span>
+          </div>
+          <div className="flex justify-between text-gray-700">
+            <span>Youngest person who Participated in survey :</span>
+            <span className="font-semibold">{data.youngest}</span>
+          </div>
+        </div>
       </div>      {/* Favorite Foods */}
-      <div className=" p-6 mb-6">
-        <ul className="space-y-2">
+      <div className="p-6 mb-6">
+        <div className="space-y-2">
           {data.foodCounts && Object.entries(data.foodCounts).map(([food, stats]) => (
-            <li key={food} className="text-gray-700">
-              <span>Percentage of people who like {food} : {stats.percentage}% {food}</span>  
-            </li>
+            <div key={food} className="flex justify-between text-gray-700">
+              <span>Percentage of people who like {food} :</span>
+              <span className="font-semibold">{stats.percentage}%</span>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>      {/* Rating Questions */}
-      <div className=" p-6">
-        <ul className="space-y-3">
+      <div className="p-6">
+        <div className="space-y-3">
           {data.ratingsData && Object.entries(data.ratingsData).map(([question, average]) => (
-            <li key={question} className="text-gray-700">
-              <span className="font-medium">{question}:</span>
-              <span className="ml-2  px-2 py-1 text-sm font-medium">
-                {average}
-              </span>
-              
-            </li>
+            <div key={question} className="flex justify-between text-gray-700">
+              <span className="font-medium">People who {question} :</span>
+              <span className="font-semibold">{average}</span>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );

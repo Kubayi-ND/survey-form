@@ -69,7 +69,7 @@ export async function GET() {
 
     // Calculate favorite food distribution
     const foodCounts = {};
-    const allFoods = ['Pizza', 'Pasta', 'Pap and Wors', 'Other'];
+    const allFoods = ['Pizza', 'Pasta', 'Pap and Wors'];
     
     allFoods.forEach(food => {
       const count = surveys
